@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NgxPictureFramingModule } from '../../projects/ngx-picture-framing/src/lib/ngx-picture-framing.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgxPictureFramingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

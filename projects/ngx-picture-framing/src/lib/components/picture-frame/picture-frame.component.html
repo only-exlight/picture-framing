@@ -1,0 +1,58 @@
+<div class="frame"
+  [style.left.px]="frame.a.x"
+  [style.top.px]="frame.a.y"
+  [style.width.px]="frame.width"
+  [style.height.px]="frame.height">
+    <div class="resize-wrapper">
+        <div class="resize" [ngClass]="{'active': frame.isMove}" id="top-left"
+          [style.width.px]="frame.widthResizeBoreder"
+          [style.height.px]="frame.widthResizeBoreder"
+          (mousedown)="resizeStart($event, resizeT.TOP_LEFT)"
+          (mouseup)="endResize($event)"></div>
+        <div class="resize" [ngClass]="{'active': frame.isMove}" id="top-resize"
+          [style.width]="'calc(100% - ' + frame.widthResizeBoreder * 2 +'px)'"
+          (mousedown)="resizeStart($event, resizeT.TOP)"
+          (mouseup)="endResize($event)"></div>
+        <div class="resize" [ngClass]="{'active': frame.isMove}" id="top-rigth"
+          [style.width.px]="frame.widthResizeBoreder"
+          [style.height.px]="frame.widthResizeBoreder"
+          (mousedown)="resizeStart($event, resizeT.TOP_RIGTH)"
+          (mouseup)="endResize($event)"></div>
+    </div>
+  <div class="resize-wrapper"
+    [style.height]="'calc(100% - ' + frame.widthResizeBoreder * 2 +'px)'">
+    <div class="resize" [ngClass]="{'active': frame.isMove}" id="left-resize"
+      [style.width.px]="frame.widthResizeBoreder"
+      (mousedown)="resizeStart($event, resizeT.RIGTH)"
+      (mouseup)="endResize($event)"></div>
+    <div class="space"
+      [style.width]="'calc(100% - ' + frame.widthResizeBoreder * 2 +'px)'"
+      (mousedown)="moveStart($event)"
+      (contextmenu)="removeFrame($event)"
+      (mouseup)="moveEnd($event)">
+        <div class="frame-name" [ngClass]="{'active': frame.isMove}">
+          <div [ngClass]="{'hidden': frameNameWidth > frame.width}" #frameName>{{frame.frameName}}</div>
+        </div>
+      </div>
+    <div class="resize" [ngClass]="{'active': frame.isMove}" id="rigth-resize"
+      [style.width.px]="frame.widthResizeBoreder"
+      (mousedown)="resizeStart($event, resizeT.LEFT)"
+      (mouseup)="endResize($event)"></div>
+  </div>
+  <div class="resize-wrapper">
+      <div class="resize" [ngClass]="{'active': frame.isMove}" id="bottom-left"
+        [style.width.px]="frame.widthResizeBoreder"
+        [style.height.px]="frame.widthResizeBoreder"
+        (mousedown)="resizeStart($event, resizeT.BOTTOM_LEFT)"
+        (mouseup)="endResize($event)"></div>
+      <div class="resize" [ngClass]="{'active': frame.isMove}" id="bottom-resize"
+        [style.width]="'calc(100% - ' + frame.widthResizeBoreder * 2 +'px)'"
+        (mousedown)="resizeStart($event, resizeT.BOTTOM)"
+        (mouseup)="endResize($event)"></div>
+      <div class="resize" [ngClass]="{'active': frame.isMove}" id="bottom-rigth"
+        [style.width.px]="frame.widthResizeBoreder"
+        [style.height.px]="frame.widthResizeBoreder"
+        (mousedown)="resizeStart($event, resizeT.BOTTOM_RIGTH)"
+        (mouseup)="endResize($event)"></div>
+  </div>
+</div>

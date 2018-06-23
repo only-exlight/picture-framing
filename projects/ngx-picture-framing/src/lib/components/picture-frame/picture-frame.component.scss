@@ -1,0 +1,85 @@
+$resize-border-color: rgba(154, 205, 50, 0.5);
+$active-border-color: rgba(205, 50, 50, 0.5);
+$resize-border: dashed 3px $resize-border-color;
+.frame {
+  position: absolute;
+  background: rgba( 256, 256, 256, .2);
+  top: 0;
+  left: 0;
+  .resize-wrapper {
+    display: flex;
+    .resize {
+      box-sizing: border-box;
+    }
+    .space {
+      cursor: grabbing;
+    }
+    .space {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .frame-name {
+        .hidden {
+          display: none;
+        }
+        &.active {
+          color: rgb(205, 50, 50);
+        }
+        color: yellowgreen;
+      }
+      .frame-name::selection {
+        background: transparent;
+     }
+    }
+    #top-resize {
+      &.active {
+        border-color: $active-border-color;
+      }
+      border-color: $resize-border-color;
+      border-top: $resize-border;
+      cursor: ns-resize
+    }
+    #bottom-resize {
+      &.active {
+        border-color: $active-border-color;
+      }
+      border-color: $resize-border-color;
+      border-bottom: $resize-border;
+      cursor: ns-resize
+    }
+    #rigth-resize {
+      &.active {
+        border-color: $active-border-color;
+      }
+      border-color: $resize-border-color;
+      border-right: $resize-border;
+      height: 100%;
+      cursor: ew-resize;
+    }
+    #left-resize {
+      &.active {
+        border-color: $active-border-color;
+      }
+      border-color: $resize-border-color;
+      border-left: $resize-border;
+      cursor: ew-resize;
+      height: 100%
+    }
+    #top-left,
+    #bottom-rigth {
+      &.active {
+        background: $active-border-color;
+      }
+      background: $resize-border-color;
+      cursor: nwse-resize;
+    }
+    #top-rigth,
+    #bottom-left {
+      &.active {
+        background: $active-border-color;
+      }
+      background: $resize-border-color;
+      cursor: nesw-resize;
+    }
+  }
+}

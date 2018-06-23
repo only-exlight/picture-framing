@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "ngx-picture-framing": {
+      "root": "projects/ngx-picture-framing",
+      "sourceRoot": "projects/ngx-picture-framing/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-picture-framing/tsconfig.lib.json",
+            "project": "projects/ngx-picture-framing/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngx-picture-framing/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-picture-framing/src/test.ts",
+            "tsConfig": "projects/ngx-picture-framing/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-picture-framing/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-picture-framing/tsconfig.lib.json",
+              "projects/ngx-picture-framing/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "picture-framing"

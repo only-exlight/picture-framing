@@ -1,0 +1,14 @@
+<div class="image-wrapper"
+  (mousedown)="startCreateFrame($event)"
+  (mouseup)="endCreateFrame($event)"
+  (mousemove)="move($event)">
+  <img #wrapper [src]="imgURL" draggable="false">
+  <div class="frame-wrapper" *ngFor="let frame of frames">
+    <abmed-photo-frame [frame]="frame"
+    (capture)="capture($event)"
+    (captureEnd)="endCapure()"
+    (resize)="resize($event)"
+    (resizeEnd)="endResize()"
+    (remove)="remove($event)"></abmed-photo-frame>
+  </div>
+</div>
