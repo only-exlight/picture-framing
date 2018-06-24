@@ -1,10 +1,10 @@
 export enum ResizeType {
   LEFT,
-  RIGTH,
+  RIGHT,
   TOP,
   BOTTOM,
-  BOTTOM_RIGTH,
+  BOTTOM_RIGHT,
   BOTTOM_LEFT,
-  TOP_RIGTH,
+  TOP_RIGHT,
   TOP_LEFT
 }

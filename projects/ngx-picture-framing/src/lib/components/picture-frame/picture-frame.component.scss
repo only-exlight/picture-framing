@@ -50,7 +50,7 @@ $border-style: dashed;
       border-bottom-style: $border-style;
       cursor: ns-resize
     }
-    #rigth-resize {
+    #right-resize {
       &.active {
         border-color: $active-border-color;
       }
@@ -71,14 +71,14 @@ $border-style: dashed;
       height: 100%
     }
     #top-left,
-    #bottom-rigth {
+    #bottom-right {
       &.active {
         background: $active-border-color;
       }
       background: $resize-border-color;
       cursor: nwse-resize;
     }
-    #top-rigth,
+    #top-right,
     #bottom-left {
       &.active {
         background: $active-border-color;
