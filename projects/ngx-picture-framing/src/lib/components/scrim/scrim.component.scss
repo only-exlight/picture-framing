@@ -1,0 +1,15 @@
+.image-wrapper {
+  width: max-content;
+  height: max-content;
+  overflow-x: auto;
+  position: relative;
+  cursor: crosshair;
+  padding: 0;
+  img::selection {
+    background: transparent;
+  }
+  .frame-wrapper {
+    width: 0;
+    height: 0;
+  }
+}

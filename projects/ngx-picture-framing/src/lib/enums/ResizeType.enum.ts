@@ -1,3 +1,6 @@
+/**
+ * @author Andrey K/ snow-storm.ru
+ */
 export enum ResizeType {
   LEFT,
   RIGHT,

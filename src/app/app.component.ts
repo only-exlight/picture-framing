@@ -6,6 +6,7 @@ import { FrameStyle } from 'projects/ngx-picture-framing/src/lib/interfaces';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   public frameStyle: FrameStyle = {
     background: 'rgba(53, 102, 214, 0.2)',

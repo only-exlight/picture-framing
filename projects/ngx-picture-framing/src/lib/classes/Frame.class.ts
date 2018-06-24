@@ -1,3 +1,9 @@
+/**
+ * License Apache 2.0
+ * @file This file describes the Frame class
+ * @author Andrey K. http://snow-storm.ru, https://github.com/snowstroom
+ */
+
 import { Square, Point, SizeImg } from '../interfaces';
 import { ResizeType } from '../enums/ResizeType.enum';
 
@@ -119,7 +125,7 @@ export class Frame {
         this._resizeLeft(point.x, clRect);
         break;
       }
-      case ResizeType.RIGTH: {
+      case ResizeType.RIGHT: {
         this._resizeRigth(point.x, clRect);
         break;
       }
@@ -131,7 +137,7 @@ export class Frame {
         this._resizeBottom(point.y, clRect);
         break;
       }
-      case ResizeType.BOTTOM_RIGTH: {
+      case ResizeType.BOTTOM_RIGHT: {
         this._resizeBottomRigth(point, clRect);
         break;
       }
@@ -139,7 +145,7 @@ export class Frame {
         this._resizeBottomLeft(point, clRect);
         break;
       }
-      case ResizeType.TOP_RIGTH: {
+      case ResizeType.TOP_RIGHT: {
         this._resizeTopRigth(point, clRect);
         break;
       }
@@ -245,18 +251,6 @@ export class Frame {
    * @param clRect Bounding Client Rect.
    */
   private _resizeLeft(x: number, clRect: DOMRect): void {
-    const width = x - this.a.x + this._widthResizeBorder - clRect.x;
-    if (width > this._minSize) {
-      this._width = width;
-      this._reCalcPoints();
-    }
-  }
-  /**
-   * Handler rigth resize
-   * @param x clientX position cursor
-   * @param clRect Bounding Client Rect.
-   */
-  private _resizeRigth(x: number, clRect: DOMRect): void {
     const a = x - clRect.x;
     if (this._points.b.x > a) {
       const width = this._points.b.x - a;
@@ -265,6 +259,18 @@ export class Frame {
         this._width = this._points.b.x - this._points.a.x;
         this._reCalcPoints();
       }
+    }
+  }
+  /**
+   * Handler rigth resize
+   * @param x clientX position cursor
+   * @param clRect Bounding Client Rect.
+   */
+  private _resizeRigth(x: number, clRect: DOMRect): void {
+    const width = x - this.a.x + this._widthResizeBorder - clRect.x;
+    if (width > this._minSize) {
+      this._width = width;
+      this._reCalcPoints();
     }
   }
   /**
