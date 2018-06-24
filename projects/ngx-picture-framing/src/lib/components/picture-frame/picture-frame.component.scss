@@ -1,6 +1,7 @@
-$resize-border-color: rgba(154, 205, 50, 0.5);
-$active-border-color: rgba(205, 50, 50, 0.5);
-$resize-border: dashed 3px $resize-border-color;
+$resize-border-color: rgba(0, 0, 0, 0.7);
+$active-border-color: rgba(209, 28, 28, 0.7);
+$border: 3px;
+$border-style: dashed;
 .frame {
   position: absolute;
   background: rgba( 256, 256, 256, .2);
@@ -36,7 +37,8 @@ $resize-border: dashed 3px $resize-border-color;
         border-color: $active-border-color;
       }
       border-color: $resize-border-color;
-      border-top: $resize-border;
+      border-top: $border;
+      border-top-style: $border-style;
       cursor: ns-resize
     }
     #bottom-resize {
@@ -44,7 +46,8 @@ $resize-border: dashed 3px $resize-border-color;
         border-color: $active-border-color;
       }
       border-color: $resize-border-color;
-      border-bottom: $resize-border;
+      border-bottom: $border;
+      border-bottom-style: $border-style;
       cursor: ns-resize
     }
     #rigth-resize {
@@ -52,7 +55,8 @@ $resize-border: dashed 3px $resize-border-color;
         border-color: $active-border-color;
       }
       border-color: $resize-border-color;
-      border-right: $resize-border;
+      border-right: $border;
+      border-right-style: $border-style;
       height: 100%;
       cursor: ew-resize;
     }
@@ -61,7 +65,8 @@ $resize-border: dashed 3px $resize-border-color;
         border-color: $active-border-color;
       }
       border-color: $resize-border-color;
-      border-left: $resize-border;
+      border-left: $border;
+      border-left-style: $border-style;
       cursor: ew-resize;
       height: 100%
     }

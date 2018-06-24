@@ -1,7 +1,6 @@
-import { Component, OnInit, ElementRef, ViewChild, Input, Output } from '@angular/core';
-import { Point, SizeImg } from '../../interfaces';
+import { Component, OnInit, ElementRef, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Point, SizeImg, FrameStyle, FrameConfig } from '../../interfaces';
 import { Frame } from '../../classes/Frame.class';
-import { EventEmitter } from 'events';
 
 @Component({
   selector: 'lib-scrim',
@@ -11,7 +10,8 @@ import { EventEmitter } from 'events';
 export class ScrimComponent implements OnInit {
 
   @ViewChild('wrapper') wrapper: ElementRef<HTMLImageElement>;
-  @Input() framseSetting: any;
+  @Input() frameStyle: FrameStyle;
+  @Input() imgURL: string;
   @Output() wasCreate = new EventEmitter();
   @Output() wasRemove = new EventEmitter();
   @Output() wasResize = new EventEmitter();
@@ -20,7 +20,6 @@ export class ScrimComponent implements OnInit {
   @Output() isResize = new EventEmitter();
 
   public frames: Array<Frame> = [];
-  public imgURL: string;
   private _startPosition: Point;
   private _isCapture = false;
   private _isResize = false;

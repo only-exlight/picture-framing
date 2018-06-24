@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FrameStyle } from 'projects/ngx-picture-framing/src/lib/interfaces';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  public frameStyle: FrameStyle = {
+    background: 'rgba(53, 102, 214, 0.2)',
+    borderColor: 'rgba(247, 0, 247, 0.7)',
+    borderActive: 'rgba(0,30,247, 0.7)',
+    borderStyle: 'dotted',
+    borderSize: 5
+  };
 }

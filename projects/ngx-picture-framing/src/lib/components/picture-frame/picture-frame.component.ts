@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { Frame } from '../../classes/Frame.class';
 import { ResizeType } from '../../enums/ResizeType.enum';
+import { FrameStyle } from '../../interfaces';
 
 @Component({
   selector: 'lib-picture-frame',
@@ -10,7 +11,8 @@ import { ResizeType } from '../../enums/ResizeType.enum';
 export class PictureFrameComponent implements OnInit {
 
   @ViewChild('frameName') frameName: ElementRef<HTMLDivElement>;
-  @Input('frame') public frame: Frame;
+  @Input() frame: Frame;
+  @Input() frameStyle: FrameStyle;
   @Output() capture = new EventEmitter<Frame>();
   @Output() captureEnd = new EventEmitter();
   @Output() resize = new EventEmitter<Frame>();
@@ -19,7 +21,9 @@ export class PictureFrameComponent implements OnInit {
   public resizeT = ResizeType;
   public frameNameWidth: number;
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.frameStyle);
+   }
   /**
    * Informs scrim about start move
    * @param e MouseDown event
