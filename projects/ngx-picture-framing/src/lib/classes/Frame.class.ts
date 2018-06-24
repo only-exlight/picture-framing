@@ -80,8 +80,12 @@ export class Frame {
     return this._frameName;
   }
 
-  set frameName(value: string) {
+  public setFrameName(value: string) {
     this._frameName = value;
+  }
+
+  public setFrameId(value: string) {
+    this._id = value;
   }
 
   get widthResizeBoreder(): number {

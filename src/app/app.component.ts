@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FrameStyle } from 'projects/ngx-picture-framing/src/lib/interfaces';
+import { FrameStyle, ScrimEventInterface } from 'projects/ngx-picture-framing/src/lib/interfaces';
 
 @Component({
   selector: 'app-root',
@@ -15,4 +15,8 @@ export class AppComponent {
     borderStyle: 'groove',
     borderSize: 5
   };
+
+  public showCreated(scrimEvent: ScrimEventInterface) {
+    console.log(scrimEvent);
+  }
 }

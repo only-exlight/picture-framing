@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { Point, SizeImg, FrameStyle, FrameConfig } from '../../interfaces';
-import { Frame } from '../../classes/Frame.class';
+import { Frame, ScrimEvent } from '../../classes';
 
 @Component({
   selector: 'lib-scrim',
@@ -12,12 +12,12 @@ export class ScrimComponent implements OnInit {
   @ViewChild('wrapper') wrapper: ElementRef<HTMLImageElement>;
   @Input() frameStyle: FrameStyle;
   @Input() imgURL: string;
-  @Output() wasCreate = new EventEmitter();
-  @Output() wasRemove = new EventEmitter();
-  @Output() wasResize = new EventEmitter();
-  @Output() wasMoved = new EventEmitter();
-  @Output() isMove = new EventEmitter();
-  @Output() isResize = new EventEmitter();
+  @Output() wasCreate = new EventEmitter<ScrimEvent>();
+  @Output() wasRemove = new EventEmitter<ScrimEvent>();
+  @Output() wasResize = new EventEmitter<ScrimEvent>();
+  @Output() wasMoved = new EventEmitter<ScrimEvent>();
+  @Output() isMove = new EventEmitter<ScrimEvent>();
+  @Output() isResize = new EventEmitter<ScrimEvent>();
 
   public frames: Array<Frame> = [];
   private _startPosition: Point;
@@ -61,7 +61,9 @@ export class ScrimComponent implements OnInit {
     };
     const clRect: any = this.wrapper.nativeElement.getBoundingClientRect();
     if (this._startPosition) {
-      this.frames.push(new Frame(this._startPosition, endPoint, size, clRect));
+      const frame = new Frame(this._startPosition, endPoint, size, clRect);
+      this.frames.push(frame);
+      this.wasCreate.emit(new ScrimEvent(frame, 'WAS_CREATED'));
     }
     this._startPosition = null;
   }
