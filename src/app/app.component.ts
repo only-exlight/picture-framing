@@ -11,7 +11,7 @@ export class AppComponent {
     background: 'rgba(53, 102, 214, 0.2)',
     borderColor: 'rgba(247, 0, 247, 0.7)',
     borderActive: 'rgba(0,30,247, 0.7)',
-    borderStyle: 'dotted',
+    borderStyle: 'groove',
     borderSize: 5
   };
 }

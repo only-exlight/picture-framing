@@ -1,7 +1,7 @@
 export interface FrameStyle {
-  background: 'dotted' | 'dashed' | 'solid' | 'double' | 'groove' | 'ridge' | 'inset';
+  background: string;
   borderColor: string;
   borderActive: string;
-  borderStyle: string;
+  borderStyle: 'dotted' | 'dashed' | 'solid' | 'double' | 'groove' | 'ridge' | 'inset';
   borderSize: number;
 }
