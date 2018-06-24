@@ -9,43 +9,53 @@
     (isMove)="showMove($event)"
     (isResize)="showResize($event)"></lib-scrim>
 </div>
-<div>
-  <div>
-    <span>Change background color:</span>
-    <input [value]="frameStyle.background"
-      [style.background]="frameStyle.background"
-      [cpOutputFormat]="'rgba'"
-      [(colorPicker)]="frameStyle.background"/>
+<div class="demo-controls">
+  <div class="style-controls">
+    <h1>Styles controls</h1>
+    <div>
+      <span>Change background color:</span>
+      <input [value]="frameStyle.background"
+        [style.background]="frameStyle.background"
+        [cpOutputFormat]="'rgba'"
+        [(colorPicker)]="frameStyle.background"/>
+    </div>
+    <div>
+      <span>Change border color:</span>
+      <input [value]="frameStyle.borderColor"
+        [style.background]="frameStyle.borderColor"
+        [cpOutputFormat]="'rgba'"
+        [(colorPicker)]="frameStyle.borderColor"/>
+    </div>
+    <div>
+      <span>Change active color:</span>
+      <input [value]="frameStyle.borderActive"
+        [style.background]="frameStyle.borderActive"
+        [cpOutputFormat]="'rgba'"
+        [(colorPicker)]="frameStyle.borderActive"/>
+    </div>
+    <div>
+        <span>Change border style:</span>
+        <select name="" id="">
+          <option>dotted</option>
+          <option>dashed</option>
+          <option>solid</option>
+          <option>double</option>
+          <option>groove</option>
+          <option>ridge</option>
+          <option>inset</option>
+        </select>
+    </div>
+    <div>
+      <span>Change border size</span>
+      <input type="number" [(ngModel)]="frameStyle.borderSize">
+    </div>
   </div>
-  <div>
-    <span>Change border color:</span>
-    <input [value]="frameStyle.borderColor"
-      [style.background]="frameStyle.borderColor"
-      [cpOutputFormat]="'rgba'"
-      [(colorPicker)]="frameStyle.borderColor"/>
+  <div class="frame-controls">
+    <h1>Frame controls</h1>
   </div>
-  <div>
-    <span>Change active color:</span>
-    <input [value]="frameStyle.borderActive"
-      [style.background]="frameStyle.borderActive"
-      [cpOutputFormat]="'rgba'"
-      [(colorPicker)]="frameStyle.borderActive"/>
+  <div class="events-info">
+    <h1>Events info</h1>
   </div>
-  <div>
-      <span>Change border style:</span>
-      <select name="" id="">
-        <option>dotted</option>
-        <option>dashed</option>
-        <option>solid</option>
-        <option>double</option>
-        <option>groove</option>
-        <option>ridge</option>
-        <option>inset</option>
-      </select>
-  </div>
-  <div>
-    <span>Change border size</span>
-    <input type="number" [(ngModel)]="frameStyle.borderSize">
-  </div>
+
 </div>
 
