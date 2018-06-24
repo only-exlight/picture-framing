@@ -14,7 +14,7 @@ export class ScrimEvent implements ScrimEventInterface {
     this.type = type;
     this.id = frame.id;
     this.name = frame.frameName;
-    this.position = frame.a;
+    this.position = {...frame.a };
     this.width = frame.width;
     this.heigth = frame.height;
     this.setId = frame.setFrameId;

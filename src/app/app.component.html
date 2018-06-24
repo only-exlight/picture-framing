@@ -55,7 +55,68 @@
   </div>
   <div class="events-info">
     <h1>Events info</h1>
+    <div *ngIf="createEvent">
+      <div class="event-name">CREATED</div>
+      <div>ID: {{createEvent.id}}</div>
+      <div>NAME: {{createEvent.name}}</div>
+      <div>WIDTH: {{createEvent.width}}</div>
+      <div>HEIGTH: {{createEvent.heigth}}</div>
+      <div >
+        CURRENT POSITION: x - {{createEvent.position.x}}; y - {{createEvent.position.y}}
+      </div>
+    </div>
+    <div *ngIf="removeEvent">
+        <div class="event-name">DELETED</div>
+        <div>ID: {{removeEvent.id}}</div>
+        <div>NAME: {{removeEvent.name}}</div>
+        <div>WIDTH: {{removeEvent.width}}</div>
+        <div>HEIGTH: {{removeEvent.heigth}}</div>
+        <div>
+          CURRENT POSITION: x - {{removeEvent.position.x}}; y - {{removeEvent.position.y}}
+        </div>
+      </div>
+      <div *ngIf="resizedEvent">
+        <div class="event-name">RESIZED</div>
+        <div>ID: {{resizedEvent.id}}</div>
+        <div>NAME: {{resizedEvent.name}}</div>
+        <div>WIDTH: {{resizedEvent.width}}</div>
+        <div>HEIGTH: {{resizedEvent.heigth}}</div>
+        <div >
+          CURRENT POSITION: x - {{resizedEvent.position.x}}; y - {{resizedEvent.position.y}}
+        </div>
+      </div>
+      <div *ngIf="moveEvent">
+        <div class="event-name">MOVE</div>
+        <div>ID: {{moveEvent.id}}</div>
+        <div>NAME: {{moveEvent.name}}</div>
+        <div>WIDTH: {{moveEvent.width}}</div>
+        <div>HEIGTH: {{moveEvent.heigth}}</div>
+        <div >
+          CURRENT POSITION: x - {{moveEvent.position.x}}; y - {{movedEvent.position.y}}
+        </div>
+      </div>
+      <div *ngIf="movedEvent">
+          <div class="event-name">MOVED</div>
+          <div>ID: {{movedEvent.id}}</div>
+          <div>NAME: {{movedEvent.name}}</div>
+          <div>WIDTH: {{movedEvent.width}}</div>
+          <div>HEIGTH: {{movedEvent.heigth}}</div>
+          <div >
+            CURRENT POSITION: x - {{movedEvent.position.x}}; y - {{movedEvent.position.y}}
+          </div>
+        </div>
+      <div *ngIf="resizeEvent">
+        <div class="event-name">RESIZE</div>
+        <div>ID: {{resizeEvent.id}}</div>
+        <div>NAME: {{resizeEvent.name}}</div>
+        <div>WIDTH: {{resizeEvent.width}}</div>
+        <div>HEIGTH: {{resizeEvent.heigth}}</div>
+        <div >
+          CURRENT POSITION: x - {{resizeEvent.position.x}}; y - {{resizeEvent.position.y}}
+        </div>
+      </div>
   </div>
+
 
 </div>
 

@@ -8,6 +8,12 @@ import { FrameStyle, ScrimEventInterface } from 'projects/ngx-picture-framing/sr
 })
 
 export class AppComponent {
+  public createEvent: ScrimEventInterface;
+  public removeEvent: ScrimEventInterface;
+  public resizedEvent: ScrimEventInterface;
+  public movedEvent: ScrimEventInterface;
+  public moveEvent: ScrimEventInterface;
+  public resizeEvent: ScrimEventInterface;
   public frameStyle: FrameStyle = {
     background: 'rgba(53, 102, 214, 0.2)',
     borderColor: 'rgba(247, 0, 247, 0.7)',
@@ -17,27 +23,28 @@ export class AppComponent {
   };
 
   public showCreated(scrimEvent: ScrimEventInterface): void {
-    console.log(scrimEvent);
+    this.createEvent = scrimEvent;
   }
 
   public showRemoved(scrimEvent: ScrimEventInterface): void {
-    console.log(scrimEvent);
+    this.removeEvent = scrimEvent;
   }
 
   public showResized(scrimEvent: ScrimEventInterface): void {
-    console.log(scrimEvent);
+    this.resizedEvent = scrimEvent;
   }
 
   public showMoved(scrimEvent: ScrimEventInterface): void {
-    console.log(scrimEvent);
+    this.movedEvent = scrimEvent;
   }
 
   public showMove(scrimEvent: ScrimEventInterface): void {
-    console.log(scrimEvent);
+    this.moveEvent = scrimEvent;
+    console.log(this.moveEvent);
   }
 
   public showResize(scrimEvent: ScrimEventInterface): void {
-    console.log(scrimEvent);
+    this.resizeEvent = scrimEvent;
   }
 
   public active(): void {
