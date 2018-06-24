@@ -16,7 +16,31 @@ export class AppComponent {
     borderSize: 5
   };
 
-  public showCreated(scrimEvent: ScrimEventInterface) {
+  public showCreated(scrimEvent: ScrimEventInterface): void {
     console.log(scrimEvent);
+  }
+
+  public showRemoved(scrimEvent: ScrimEventInterface): void {
+    console.log(scrimEvent);
+  }
+
+  public showResized(scrimEvent: ScrimEventInterface): void {
+    console.log(scrimEvent);
+  }
+
+  public showMoved(scrimEvent: ScrimEventInterface): void {
+    console.log(scrimEvent);
+  }
+
+  public showMove(scrimEvent: ScrimEventInterface): void {
+    console.log(scrimEvent);
+  }
+
+  public showResize(scrimEvent: ScrimEventInterface): void {
+    console.log(scrimEvent);
+  }
+
+  public active(): void {
+    console.log();
   }
 }

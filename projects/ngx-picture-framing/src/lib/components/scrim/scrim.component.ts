@@ -36,8 +36,10 @@ export class ScrimComponent implements OnInit {
     const clRect: any = this.wrapper.nativeElement.getBoundingClientRect();
     if (this._isCapture) {
       this._activeFrame.moveFrame({ x: e.clientX, y: e.clientY }, clRect );
+      this.isResize.emit(new ScrimEvent(this._activeFrame, 'MOVE'));
     } else if (this._isResize) {
       this._activeFrame.resize({ x: e.clientX, y: e.clientY }, clRect);
+      this.isResize.emit(new ScrimEvent(this._activeFrame, 'RESIZE'));
     }
   }
   /**
@@ -45,8 +47,10 @@ export class ScrimComponent implements OnInit {
    * @param e MouseDown event
    */
   public startCreateFrame(e: MouseEvent): void {
-    if (!this._isCapture && !this._isResize) {
-      this._startPosition = { x: e.clientX, y: e.clientY };
+    if (e.button === 0) {
+      if (!this._isCapture && !this._isResize) {
+        this._startPosition = { x: e.clientX, y: e.clientY };
+      }
     }
   }
   /**
@@ -80,6 +84,7 @@ export class ScrimComponent implements OnInit {
    */
   public endCapure() {
     this._activeFrame.moveFrameEnd();
+    this.wasMoved.emit(new ScrimEvent(this._activeFrame, 'WAS_MOVE'));
     this._isCapture = false;
   }
   /**
@@ -94,6 +99,7 @@ export class ScrimComponent implements OnInit {
    * Inform scrim about end resize frame
    */
   public endResize() {
+    this.wasResize.emit(new ScrimEvent(this._activeFrame, 'WAS_RESIZED'));
     this._isResize = false;
   }
   /**
@@ -101,6 +107,7 @@ export class ScrimComponent implements OnInit {
    * @param frame frame needy in remove
    */
   public remove(frame: Frame): void {
+    this.wasRemove.emit(new ScrimEvent(frame, 'WAS_DELETED'));
     this.frames = this.frames.filter(fr => fr.id !== frame.id);
   }
 

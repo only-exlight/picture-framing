@@ -29,8 +29,10 @@ export class PictureFrameComponent implements OnInit {
    * @param e MouseDown event
    */
   public moveStart(e: MouseEvent): void {
-    this.frame.setOffset({x: e.clientX, y: e.clientY});
-    this.capture.emit(this.frame);
+    if (e.button === 0) {
+      this.frame.setOffset({x: e.clientX, y: e.clientY});
+      this.capture.emit(this.frame);
+    }
   }
   /**
    * Informs scrim about end move
@@ -45,9 +47,11 @@ export class PictureFrameComponent implements OnInit {
    * @param type Type of resize (ResizeType enum)
    */
   public resizeStart(e: MouseEvent, type: ResizeType): void {
-    this.frameNameWidth = this.frameName.nativeElement.clientWidth;
-    this.frame.startResize(type);
-    this.resize.emit(this.frame);
+    if (e.button === 0) {
+      this.frameNameWidth = this.frameName.nativeElement.clientWidth;
+      this.frame.startResize(type);
+      this.resize.emit(this.frame);
+    }
   }
   /**
    * Informs scrim about end resize
