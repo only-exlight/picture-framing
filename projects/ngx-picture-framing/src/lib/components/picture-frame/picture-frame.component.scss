@@ -13,6 +13,7 @@ $border-style: dashed;
       box-sizing: border-box;
     }
     .space {
+      position: relative;
       cursor: grabbing;
     }
     .space {
@@ -27,6 +28,12 @@ $border-style: dashed;
           color: rgb(205, 50, 50);
         }
         color: yellowgreen;
+        .name-input {
+          border: none;
+          outline: none;
+          background: transparent;
+          width: max-content;
+        }
       }
       .frame-name::selection {
         background: transparent;

@@ -8,6 +8,7 @@ import { Square, Point, SizeImg } from '../interfaces';
 import { ResizeType } from '../enums/ResizeType.enum';
 
 export class Frame {
+  public name: string;
   private _id: string;
   private _width: number;
   private _height: number;
@@ -16,9 +17,9 @@ export class Frame {
   private _minSize = 50;
   private _offset: Point;
   private _resizeType: ResizeType;
-  private _frameName: string;
   private _imgSize: SizeImg;
   private _isMove: boolean;
+  private _active: boolean;
   /**
    * Create new Frame
    * @param startPoint clientX, clientY object start point of frame
@@ -35,7 +36,7 @@ export class Frame {
     this._calcPoints(points[0], points[1], clRect);
     this._imgSize = size;
     id ? this._id = id : this._generateId();
-    name ? this._frameName = name : this._frameName = '';
+    name ? this.name = name : this.name = '';
   }
 
   get isResize(): boolean {
@@ -77,11 +78,11 @@ export class Frame {
   }
 
   get frameName(): string {
-    return this._frameName;
+    return this.name;
   }
 
   public setFrameName(value: string) {
-    this._frameName = value;
+    this.name = value;
   }
 
   public setFrameId(value: string) {
@@ -94,6 +95,14 @@ export class Frame {
 
   set widthResizeBoreder(value: number) {
     this._widthResizeBorder = value;
+  }
+
+  set active(value: boolean) {
+    this._active = value;
+  }
+
+  get active(): boolean {
+    return this._active;
   }
   /**
    * Set offset for move frame

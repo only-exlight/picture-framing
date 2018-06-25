@@ -36,11 +36,15 @@
       (mouseup)="endResize($event)"></div>
     <div class="space"
       [style.width]="'calc(100% - ' + frame.widthResizeBoreder * 2 +'px)'"
+      (dblclick)="activate()"
       (mousedown)="moveStart($event)"
       (contextmenu)="removeFrame($event)"
       (mouseup)="moveEnd($event)">
         <div class="frame-name" [ngClass]="{'active': frame.isMove}">
-          <div [ngClass]="{'hidden': frameNameWidth > frame.width}" #frameName>{{frame.frameName}}</div>
+          <div *ngIf="!frame.active" [ngClass]="{'hidden': frameNameWidth > frame.width}" #frameName>{{frame.frameName}}</div>
+          <div *ngIf="frame.active">
+            <input class="name-input" [(ngModel)]="frame.name" type="text">
+          </div>
         </div>
       </div>
     <div class="resize" [ngClass]="{'active': frame.isMove}" id="right-resize"

@@ -13,6 +13,7 @@ export class PictureFrameComponent implements OnInit {
   @ViewChild('frameName') frameName: ElementRef<HTMLDivElement>;
   @Input() frame: Frame;
   @Input() frameStyle: FrameStyle;
+  @Output() setActive = new EventEmitter<Frame>();
   @Output() capture = new EventEmitter<Frame>();
   @Output() captureEnd = new EventEmitter();
   @Output() resize = new EventEmitter<Frame>();
@@ -68,6 +69,14 @@ export class PictureFrameComponent implements OnInit {
   public removeFrame(e: MouseEvent): void {
     e.preventDefault();
     this.remove.emit(this.frame);
+  }
+
+  public activate() {
+    this.frame.active = true;
+    if (!this.frame.name) {
+      this.frame.name = 'Введите название';
+    }
+    console.log('activate');
   }
 
 }

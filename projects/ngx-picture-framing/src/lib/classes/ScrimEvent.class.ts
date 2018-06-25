@@ -13,7 +13,7 @@ export class ScrimEvent implements ScrimEventInterface {
     type: 'WAS_CREATED' | 'WAS_DELETED' | 'WAS_MOVE' | 'WAS_RESIZED' | 'RESIZE' | 'MOVE') {
     this.type = type;
     this.id = frame.id;
-    this.name = frame.frameName;
+    this.name = frame.name;
     this.position = {...frame.a };
     this.width = frame.width;
     this.heigth = frame.height;
