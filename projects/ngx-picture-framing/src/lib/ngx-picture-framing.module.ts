@@ -6,12 +6,12 @@ import { PictureFrameComponent } from './components/picture-frame/picture-frame.
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   declarations: [
     ScrimComponent,
     PictureFrameComponent,
-    FormsModule
   ],
   exports: [ScrimComponent]
 })

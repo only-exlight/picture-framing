@@ -41,9 +41,11 @@
       (contextmenu)="removeFrame($event)"
       (mouseup)="moveEnd($event)">
         <div class="frame-name" [ngClass]="{'active': frame.isMove}">
-          <div *ngIf="!frame.active" [ngClass]="{'hidden': frameNameWidth > frame.width}" #frameName>{{frame.frameName}}</div>
+          <div [ngClass]="{'hidden': frameNameWidth > frame.width || frame.active}" #frameName>{{frame.frameName}}</div>
           <div *ngIf="frame.active">
-            <input class="name-input" [(ngModel)]="frame.name" type="text">
+            <input class="name-input" placeholder="Enter Name"
+              [(ngModel)]="frame.name" type="text"
+              (keyup)="deactivateFrame($event)">
           </div>
         </div>
       </div>

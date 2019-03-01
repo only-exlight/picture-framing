@@ -74,9 +74,13 @@ export class PictureFrameComponent implements OnInit {
   public activate() {
     this.frame.active = true;
     if (!this.frame.name) {
-      this.frame.name = 'Введите название';
+      this.frame.name = '';
     }
-    console.log('activate');
   }
 
+  public deactivateFrame(e: KeyboardEvent) {
+    if (e.keyCode === 13) {
+      this.frame.active = false;
+    }
+  }
 }
